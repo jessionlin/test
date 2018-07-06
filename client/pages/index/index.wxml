@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <!-- 用户登录测试 -->
+    <!-- 用户登录 -->
     <view class="userinfo">
         <image
             class="userinfo-avatar"
@@ -34,6 +34,12 @@
     <view class="uploader">
         <navigator url="../addCgi/addCgi" open-type="navigate" class="uploader-text">
             <text>快速增加 CGI</text>
+        </navigator>
+    </view>
+
+    <view class="uploader">
+        <navigator url="../login/login" open-type="navigate" class="uploader-text">
+            <text>登录</text>
         </navigator>
     </view>
 </view>
