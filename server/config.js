@@ -20,7 +20,7 @@ const CONF = {
         host: 'localhost',
         port: 3306,
         user: 'root',
-        db: 'cAuth',
+        db: 'salon',
         pass: '336699',
         char: 'utf8mb4'
     },
@@ -30,7 +30,7 @@ const CONF = {
          * 地区简称
          * @查看 https://cloud.tencent.com/document/product/436/6224
          */
-        region: 'ap-guangzhou',
+        region: 'ap-harbin',
         // Bucket 名称
         fileBucket: 'qcloudtest',
         // 文件夹
