@@ -1,12 +1,61 @@
-<view class='container'>
-    <view class='container register_title'>
-        <label>注册</label>
-        <!-- <progress percent="25" show-info backgroundColor="gray" activeColor="green"/> -->
-        <progress percent="{{percent}}" show-info='true' stroke-width="12" />
+<view class='container register_title'>
+  <label>注册</label>
+</view>
+<progress percent="{{percent}}" stroke-width="12" />
+<view class='page-content'>
+  <view class="page-section page-section-spacing swiper">
+      <swiper>
+        <block>
+          <!-- <swiper-item>
+            <view class="swiper-item demo-text input_style">
+                <input type='text' name="username" placeholder="  请输入用户名" />
+                <input type='text' name="realname" placeholder="  请输入真实姓名" />
+                <input type='password' name="password" placeholder="  请输入密码" />
+                <input type='check_password' name="password" placeholder="  请重新输入密码" />
+                <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button>
+            </view>
+          </swiper-item>   -->
+           <!-- <swiper-item>
+            <view class="swiper-item demo-text input_style">
+                <view class="section">
+                  <picker bindchange="chooseCollege" value="{{collegeIndex}}" range="{{collegeArray}}">
+                    <view class="picker select-style">
+                         <view class='select-title'>选择学校：</view>
+                         <view class='select-content'><view>{{collegeArray[collegeIndex]}}</view><view class='down-triangle'>▼</view></view>
+                         
+                    </view>
+                  </picker>
+                </view>
+                <view class="section">
+                  <picker bindchange="chooseFaculty" value="{{facultyIndex}}" range="{{facultyArray}}">
+                    <view class="picker select-style">
+                         <view class='select-title'>选择专业：</view>
+                         <view class='select-content'><view>{{facultyArray[facultyIndex]}}</view><view class='down-triangle'>▼</view></view>
+                         
+                    </view>
+                  </picker>
+                </view>
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button>
+            </view>
+          </swiper-item>  -->
+          <!-- <swiper-item>
+            <view class="swiper-item demo-text input_style">
+                <textarea name="profession" placeholder='告诉我们，你有什么特长吧'></textarea><label class='limit'>最多输入100字</label>
+            </view>
+             <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
+             <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button> 
+          </swiper-item>    -->
+          <swiper-item>
+            <view class="swiper-item demo-text input_style">
+                <input type='number' name="username" placeholder="  请输入手机号" />
+                <input type='email' name="realname" placeholder="  请输入邮箱" />
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='register()' style='width:75px;'>注册 </button>
+            </view>
+          </swiper-item> 
+        </block>
+      </swiper>
     </view>
-    <view>
-  
-    </view>
-  
 </view>
 
