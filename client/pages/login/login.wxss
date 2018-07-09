@@ -21,11 +21,17 @@ form{
   border-radius: 5px;
   font-size: 13px;
 }
-.checkbox_content{
+.checkbox_content,.radio-content{
   margin-top: 10px;
   margin-left: 5%;
   font-size: 12px;
   color: gray;
+}
+.radio-content label radio:nth-child(2n + 1){
+  margin-left: 5%;
+}
+.radio-content label radio:nth-child(2n){
+  margin-left: 37%;
 }
 #mem_pass{
   margin-left: 5%;

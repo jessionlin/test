@@ -1,9 +1,9 @@
 {
   "pages":[
+    "pages/register/register",
     "pages/login/login",
     "pages/index/index",
-    "pages/addCgi/addCgi",
-    "pages/register/register"
+    "pages/addCgi/addCgi"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
