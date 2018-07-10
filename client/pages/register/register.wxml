@@ -1,21 +1,21 @@
 <view class='container register_title'>
   <label>注册</label>
 </view>
-<progress percent="{{percent}}" stroke-width="12" />
+<progress percent="{{percent*currentItemId}}" stroke-width="12" />
 <view class='page-content'>
   <view class="page-section page-section-spacing swiper">
-      <swiper>
+      <swiper current-item-id="{{currentItemId}}">
         <block>
-          <!-- <swiper-item>
+           <swiper-item item-id="1">
             <view class="swiper-item demo-text input_style">
                 <input type='text' name="username" placeholder="  请输入用户名" />
                 <input type='text' name="realname" placeholder="  请输入真实姓名" />
                 <input type='password' name="password" placeholder="  请输入密码" />
                 <input type='check_password' name="password" placeholder="  请重新输入密码" />
-                <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
             </view>
-          </swiper-item>   -->
-           <!-- <swiper-item>
+          </swiper-item>   
+            <swiper-item item-id="2">
             <view class="swiper-item demo-text input_style">
                 <view class="section">
                   <picker bindchange="chooseCollege" value="{{collegeIndex}}" range="{{collegeArray}}">
@@ -35,23 +35,23 @@
                     </view>
                   </picker>
                 </view>
-                <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
-                <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button>
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
             </view>
-          </swiper-item>  -->
-          <!-- <swiper-item>
+          </swiper-item>  
+           <swiper-item item-id="3">
             <view class="swiper-item demo-text input_style">
                 <textarea name="profession" placeholder='告诉我们，你有什么特长吧'></textarea><label class='limit'>最多输入100字</label>
             </view>
-             <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
-             <button type='primary' size='mini' class='next-btn' bindtap='next()'>下一步</button> 
-          </swiper-item>    -->
-          <swiper-item>
+             <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+             <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button> 
+          </swiper-item>    
+          <swiper-item item-id="4">
             <view class="swiper-item demo-text input_style">
                 <input type='number' name="username" placeholder="  请输入手机号" />
                 <input type='email' name="realname" placeholder="  请输入邮箱" />
-                <button type='primary' size='mini' class='prev-btn' bindtap='prev()'>上一步</button>
-                <button type='primary' size='mini' class='next-btn' bindtap='register()' style='width:75px;'>注册 </button>
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='register' style='width:75px;'>注册 </button>
             </view>
           </swiper-item> 
         </block>

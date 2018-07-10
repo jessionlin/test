@@ -7,7 +7,7 @@ Page({
     collegeIndex: 0,
     facultyArray: ['计算机类', '软件工程', '物流管理', '飞行器设计', '物理光学'],
     facultyIndex: 0,
-
+    currentItemId:1,
   },
   onLoad:function(){
 
@@ -22,4 +22,17 @@ Page({
       facultyIndex: e.detail.value
     })
   },
+  next:function(e){
+    this.setData({
+      currentItemId: this.data.currentItemId+1
+    })
+  },
+  prev:function(){
+    this.setData({
+      currentItemId: this.data.currentItemId - 1
+    })
+  },
+  register:function(){
+
+  }
 })
