@@ -15,5 +15,16 @@ app.use(bodyParser())
 const router = require('./routes')
 app.use(router.routes())
 
+const session = require('koa-session');
+app.keys = ['this is the secret session key of salon project']; // session 信息加密密钥
+app.use(session({
+  key: 'koa:sess', /** cookie的名称，可以不管 */
+  maxAge: 7200000, /** (number) maxAge in ms (default is 1 days)，cookie的过期时间，这里表示2个小时 */
+  overwrite: true, /** (boolean) can overwrite or not (default true) */
+  httpOnly: true, /** (boolean) httpOnly or not (default true) */
+  signed: true, /** (boolean) signed or not (default true) */
+}, app));
+
+
 // 启动程序，监听端口
 app.listen(config.port, () => debug(`listening on port ${config.port}`))
