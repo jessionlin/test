@@ -6,7 +6,7 @@
   <view class="page-section page-section-spacing swiper">
       <swiper current-item-id="{{currentItemId}}">
         <block>
-           <swiper-item item-id="1">
+            <swiper-item item-id="1">
             <view class="swiper-item demo-text input_style">
                 <input type='text' name="username" placeholder="  请输入用户名（必填）" bindblur='username'/><text class='error' style="display:{{usernameErrorDisplay}};">{{falseMsg}}</text>
                 <input type='text' name="realname" placeholder="  请输入真实姓名（必填）" bindblur='realname'/><text class='error' style="display:{{realnameErrorDisplay}};">{{falseMsg}}</text>
@@ -38,14 +38,33 @@
                 <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
                 <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
             </view>
-          </swiper-item>  
+          </swiper-item>   
+
            <swiper-item item-id="3">
             <view class="swiper-item demo-text input_style">
-                <textarea name="characteristic" placeholder='告诉我们，你有什么特长吧' bindinput='characteristic'></textarea><text class='error' style="display:{{charLengthErrorDisplay}};">{{falseMsg}}</text>
+                 <!-- <textarea name="characteristic" placeholder='告诉我们，你有什么特长吧' bindinput='characteristic'>
+                </textarea> -->
+                <view id='selectedLable'>
+              <view class='ch-title'> 我的特长:</view>
+                <view class='ch-label' wx:key="id" wx:for="{{labelSelected}}" wx:for-item="selected">
+                  <view class='label-selected' style="background-color:white;">{{selected.name}}<image class='minus-label' src='./minus.png'  id='{{selected.id}}_{{selected.name}}' bindtap='delSelected'></image></view>
+                </view>
             </view>
+            <view id='ch-exp'>
+              <view class='ch-title'> 从备选中选择：</view>
+              <view class='ch-label' wx:key="id" wx:for="{{labelItems}}"  wx:for-item="label">
+                  <view class='label-item' style="background-color:{{label.bgcolor}};" bindtap='selected' id='{{label.id}}_{{label.name}}'>{{label.name}}</view>
+              </view> 
+            </view>
+                <text class='error' style="display:{{chLengthErrorDisplay}};margin-top:50%;">{{falseMsg}}</text> 
+            </view>
+            <view id='footer-btn'>
              <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
              <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button> 
+            </view>
           </swiper-item>    
+
+
           <swiper-item item-id="4">
             <view class="swiper-item demo-text input_style">
                 <input type='number' name="username" placeholder="  请输入手机号" bindblur='phone'/>

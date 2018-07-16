@@ -12,4 +12,5 @@
         <view class='label-item' style="background-color:{{label.bgcolor}};" bindtap='selected' id='{{label.id}}_{{label.name}}'>{{label.name}}</view>
     </view> 
   </view>
+  <text class='error' style='display:{{chLengthErrorDisplay}};margin-top:50%;'>{{chFalseMsg}}</text>
 </view>

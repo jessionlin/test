@@ -7,7 +7,9 @@ Page({
     data: {
         labelBgColor: ["white", "#FFF5EE", "#FFE4B5", "#F0FFFF", "#00FA9A", "#D8BFD8", "#F0E68C", "#B0C4DE", "#40E0D0", "#FFC0CB", "#FFFFE0", "#F5DEB3"],
         labelItems: ["项目管理", "大数据存储", "数据挖掘", "NLP", "CV", "单片机", "机器翻译", "神经网络", "SVM", "飞行器", "能源", "材料","UI设计"],
-        labelSelected: []
+        labelSelected: [],
+        chFalseMsg:"",
+        chLengthErrorDisplay:"none"
     },
     onLoad:function(){
       let labels = this.data.labelItems;
@@ -29,16 +31,26 @@ Page({
       })
       // console.log(this.data.labelItems)
     },
+    //从备选中选择一个标签
     selected:function(e){
       let id = e.target.id.split("_")[0];
       let name = e.target.id.split("_")[1];
       // console.log(id);
       console.log(this.getItemNameById(id, this.data.labelItems))
       let labelSelected = this.data.labelSelected;
-      labelSelected.push({ id: parseInt(id), name: name })
-      this.setData({
-        labelSelected: labelSelected
-      })
+      if(labelSelected.length < 5){
+        labelSelected.push({ id: parseInt(id), name: name })
+        this.setData({
+          labelSelected: labelSelected,
+          chLengthErrorDisplay: "none"
+        })
+      }
+      else{
+        this.setData({
+          chFalseMsg:"最多选择五个特长标签",
+          chLengthErrorDisplay:"block"
+        })
+      }
       this.delArrById(id, this.data.labelItems,"labelItems")
     },
     delSelected:function(e){
