@@ -6,7 +6,7 @@
   <view class="page-section page-section-spacing swiper">
       <swiper current-item-id="{{currentItemId}}">
         <block>
-            <swiper-item item-id="1">
+            <swiper-item item-id="1" catchtouchmove="disallowed">
             <view class="swiper-item demo-text input_style">
                 <input type='text' name="username" placeholder="  请输入用户名（必填）" bindblur='username'/><text class='error' style="display:{{usernameErrorDisplay}};">{{falseMsg}}</text>
                 <input type='text' name="realname" placeholder="  请输入真实姓名（必填）" bindblur='realname'/><text class='error' style="display:{{realnameErrorDisplay}};">{{falseMsg}}</text>
@@ -15,7 +15,7 @@
                 <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
             </view>
           </swiper-item>   
-            <swiper-item item-id="2">
+            <swiper-item item-id="2" catchtouchmove="disallowed">
             <view class="swiper-item demo-text input_style">
                 <view class="section">
                   <picker bindchange="chooseCollege" value="{{collegeIndex}}" range="{{collegeArray}}">
@@ -40,7 +40,7 @@
             </view>
           </swiper-item>   
 
-           <swiper-item item-id="3">
+           <swiper-item item-id="3" catchtouchmove="disallowed">
             <view class="swiper-item demo-text input_style">
                  <!-- <textarea name="characteristic" placeholder='告诉我们，你有什么特长吧' bindinput='characteristic'>
                 </textarea> -->
@@ -65,7 +65,7 @@
           </swiper-item>    
 
 
-          <swiper-item item-id="4">
+          <swiper-item item-id="4" catchtouchmove="disallowed">
             <view class="swiper-item demo-text input_style">
                 <input type='number' name="username" placeholder="  请输入手机号" bindblur='phone'/>
                 <input type='email' name="realname" placeholder="  请输入邮箱" bindblur='email'/>

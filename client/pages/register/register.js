@@ -17,7 +17,7 @@ Page({
     labelSelected: [],
     
     //注册界面picker位置
-    currentItemId:3,
+    currentItemId:1,
 
     //注册填写表项 学校选中ID与学院选中ID在上面已经定义
     userName: "",
@@ -66,6 +66,10 @@ Page({
       labelItems: items,
     })
   },
+  //禁止手动滑动swiper
+  disallowed:function(){
+    return false;
+  },
 
   /*
   注册信息写入系统变量中，
@@ -74,7 +78,7 @@ Page({
     this.setData({
       userName: e.detail.value,
     })
-    console.log(this.data.userName)
+    // console.log(this.data.userName)
     // wx.request({
     //   url: '/useful_name', 
     //   data: {
@@ -100,7 +104,7 @@ Page({
     })
   },
   checkPassword: function (e) {
-    console.log(e.detail.value)
+    // console.log(e.detail.value)
     if (e.detail.value !== this.data.password){
       this.setData({
         ifNext: false,
@@ -120,7 +124,7 @@ Page({
     this.setData({
       collegeIndex: e.detail.value
     })
-    console.log(this.data.collegeIndex)
+    // console.log(this.data.collegeIndex)
   },
   chooseFaculty: function (e) {
     this.setData({
@@ -156,10 +160,10 @@ Page({
     })
   },
   next:function(e){
-    console.log("进入了下一步活动")
+    // console.log("进入了下一步活动")
     var index = 0;
     var check = this.data.ifNext;
-    console.log(check)
+    // console.log(check)
     if (!this.data.userName || !this.data.realName || !this.data.password) {
 
       if (!this.data.userName) {
@@ -290,13 +294,13 @@ Page({
   },
   //根据ID删除某一个标签
   delArrById: function (id, arr, arrName) {
-    console.log(id)
-    console.log(arr)
+    // console.log(id)
+    // console.log(arr)
     for (let i = 0; i < arr.length; ++i) {
       if (arr[i].id == id) {
         arr.splice(i, 1);
-        console.log("arr")
-        console.log(arr);
+        // console.log("arr")
+        // console.log(arr);
         if (arrName == "labelItems") {
           this.setData({
             labelItems: arr
@@ -333,7 +337,7 @@ Page({
       })
     }
 
-    console.log(this.data.characteristic)
+    // console.log(this.data.characteristic)
   },
   //注册
   register:function(){
