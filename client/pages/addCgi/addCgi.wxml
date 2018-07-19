@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view id='selectedLable'>
+    <view class='ch-title'> 我的特长:</view>
+      <view class='ch-label' wx:key="id" wx:for="{{labelSelected}}" wx:for-item="selected">
+         <view class='label-selected' style="background-color:white;">{{selected.name}}<image class='minus-label' src='./minus.png'  id='{{selected.id}}_{{selected.name}}' bindtap='delSelected'></image></view>
+      </view>
+  </view>
+  <view id='ch-exp'>
+    <view class='ch-title'> 从备选中选择：</view>
+    <view class='ch-label' wx:key="id" wx:for="{{labelItems}}"  wx:for-item="label">
+        <view class='label-item' style="background-color:{{label.bgcolor}};" bindtap='selected' id='{{label.id}}_{{label.name}}'>{{label.name}}</view>
+    </view> 
+  </view>
+  <text class='error' style='display:{{chLengthErrorDisplay}};margin-top:50%;'>{{chFalseMsg}}</text>
+</view>

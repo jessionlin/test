@@ -1,12 +1,80 @@
-<view class='container'>
-    <view class='container register_title'>
-        <label>注册</label>
-        <!-- <progress percent="25" show-info backgroundColor="gray" activeColor="green"/> -->
-        <progress percent="{{percent}}" show-info='true' stroke-width="12" />
+<view class='container register_title'>
+  <label>注册</label>
+</view>
+<progress percent="{{percent*currentItemId}}" stroke-width="12" />
+<view class='page-content'>
+  <view class="page-section page-section-spacing swiper">
+      <swiper current-item-id="{{currentItemId}}">
+        <block>
+            <swiper-item item-id="1" catchtouchmove="disallowed">
+            <view class="swiper-item demo-text input_style">
+                <input type='text' name="username" placeholder="  请输入用户名（必填）" bindblur='username'/><text class='error' style="display:{{usernameErrorDisplay}};">{{falseMsg}}</text>
+                <input type='text' name="realname" placeholder="  请输入真实姓名（必填）" bindblur='realname'/><text class='error' style="display:{{realnameErrorDisplay}};">{{falseMsg}}</text>
+                <input type='password' name="password" placeholder="  请输入密码（必填）" bindinput='password'/>
+                <input type='password' name="check_password" placeholder="  请重新输入密码（必填）" bindinput='checkPassword'/><text class='error' style="display:{{passwordErrorDisplay}};">{{falseMsg}}</text>
+                <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
+            </view>
+          </swiper-item>   
+            <swiper-item item-id="2" catchtouchmove="disallowed">
+            <view class="swiper-item demo-text input_style">
+                <view class="section">
+                  <picker bindchange="chooseCollege" value="{{collegeIndex}}" range="{{collegeArray}}">
+                    <view class="picker select-style">
+                         <view class='select-title'>选择学校：</view>
+                         <view class='select-content'><view>{{collegeArray[collegeIndex]}}</view><view class='down-triangle'>▼</view></view>
+                         
+                    </view>
+                  </picker>
+                </view>
+                <view class="section">
+                  <picker bindchange="chooseFaculty" value="{{facultyIndex}}" range="{{facultyArray}}">
+                    <view class="picker select-style">
+                         <view class='select-title'>选择专业：</view>
+                         <view class='select-content'><view>{{facultyArray[facultyIndex]}}</view><view class='down-triangle'>▼</view></view>
+                         
+                    </view>
+                  </picker>
+                </view>
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button>
+            </view>
+          </swiper-item>   
+
+           <swiper-item item-id="3" catchtouchmove="disallowed">
+            <view class="swiper-item demo-text input_style">
+                 <!-- <textarea name="characteristic" placeholder='告诉我们，你有什么特长吧' bindinput='characteristic'>
+                </textarea> -->
+                <view id='selectedLable'>
+              <view class='ch-title'> 我的特长:</view>
+                <view class='ch-label' wx:key="id" wx:for="{{labelSelected}}" wx:for-item="selected">
+                  <view class='label-selected' style="background-color:white;">{{selected.name}}<image class='minus-label' src='./minus.png'  id='{{selected.id}}_{{selected.name}}' bindtap='delSelected'></image></view>
+                </view>
+            </view>
+            <view id='ch-exp'>
+              <view class='ch-title'> 从备选中选择：</view>
+              <view class='ch-label' wx:key="id" wx:for="{{labelItems}}"  wx:for-item="label">
+                  <view class='label-item' style="background-color:{{label.bgcolor}};" bindtap='selected' id='{{label.id}}_{{label.name}}'>{{label.name}}</view>
+              </view> 
+            </view>
+                <text class='error' style="display:{{chLengthErrorDisplay}};margin-top:50%;">{{falseMsg}}</text> 
+            </view>
+            <view id='footer-btn'>
+             <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+             <button type='primary' size='mini' class='next-btn' bindtap='next'>下一步</button> 
+            </view>
+          </swiper-item>    
+
+
+          <swiper-item item-id="4" catchtouchmove="disallowed">
+            <view class="swiper-item demo-text input_style">
+                <input type='number' name="username" placeholder="  请输入手机号" bindblur='phone'/>
+                <input type='email' name="realname" placeholder="  请输入邮箱" bindblur='email'/>
+                <button type='primary' size='mini' class='prev-btn' bindtap='prev'>上一步</button>
+                <button type='primary' size='mini' class='next-btn' bindtap='register' style='width:75px;'>注册 </button>
+            </view>
+          </swiper-item> 
+        </block>
+      </swiper>
     </view>
-    <view>
-  
-    </view>
-  
 </view>
 
