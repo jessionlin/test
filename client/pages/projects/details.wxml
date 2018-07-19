@@ -1,0 +1,90 @@
+<!--pages/projects/details.wxml-->
+
+<view class="page">
+    <view class="page__bd">
+
+      <view class="weui-article__section">
+          <view class="weui-article__p">
+              <image class="weui-article__img" src="../images/views1.jpg" mode="aspectFit" style="height: 180px" />
+          </view>
+      </view> 
+
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">项目</view>
+                </view>
+            </view> 
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">项目名称</view>
+                    <view class="weui-form-preview__value">{{project_name}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">项目介绍</view>
+                    <view class="weui-form-preview__value">{{project_describe}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">创建日期</view>
+                    <view class="weui-form-preview__value">{{date}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">项目进度</view>
+                    <view class="weui-form-preview__value">{{progress}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">浏览量</view>
+                    <view class="weui-form-preview__value">{{page_views}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">点赞数</view>
+                    <view class="weui-form-preview__value">{{thumb_number}}</view>
+                </view>
+            </view> 
+        </view>
+
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+              <view class="weui-form-preview__item">
+                <view class="weui-form-preview__label">团队要求</view>
+              </view> 
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">团队描述</view>
+                    <view class="weui-form-preview__value">{{group_describe}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">所需人数</view>
+                    <view class="weui-form-preview__value">{{group_number}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">目前人数</view>
+                    <view class="weui-form-preview__value">{{group_number_now}}</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-form-preview" wx:if="is_group_memeber">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                  <view class="weui-form-preview__label">团队成员</view>
+                  <view class="weui-form-preview__value-in-hd">{{group_number_now}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">{{project_owner}}（项目拥有者）</view>
+                    <view class="weui-form-preview__value">{{project_owner_skills}}</view>
+                </view>
+                <view wx:for="{{prjects_members}}">
+                  <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">{{item.name}}</view>
+                    <view class="weui-form-preview__value">{{item.skills}}</view>
+                  </view>
+                </view>
+            </view>
+        </view>
+
+     </view> 
+</view>

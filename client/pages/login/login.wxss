@@ -1,0 +1,63 @@
+.login_btn_style{
+    width: 80px;
+}
+.login_title{
+  margin-top: 22%; 
+  font-size: 25px;
+}
+form{
+  width: 100%;
+  margin-top: 2%;
+}
+.input_style{
+  width: 100%;
+  margin-left: 5%;
+}
+.input_style input{
+  width: 85%;
+  margin-top: 10px;
+  margin-left: 5px;
+  border:  2px solid #e0e0e0;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.checkbox_content,.radio-content{
+  margin-top: 10px;
+  margin-left: 5%;
+  font-size: 12px;
+  color: gray;
+}
+.radio-content label radio:nth-child(2n + 1){
+  margin-left: 5%;
+}
+.radio-content label radio:nth-child(2n){
+  margin-left: 37%;
+}
+#mem_pass{
+  margin-left: 5%;
+  /* width: 10px !important;
+  height: 10px !important; */
+}
+#fget_pass{
+  margin-left: 30%;
+}
+
+.login_btn_style{
+  width: 100%;
+  display: inline-block;
+}
+#login{
+  margin-top: 10px;
+  margin-left: 35%;
+  background-color: #4cae4c;
+  color: white;
+  width: 100px;
+}
+
+#go_reg{
+  width: 15%;
+   font-size: 12px;
+  color: gray;
+  margin-left: 80%;
+  margin-top: -27px;
+}

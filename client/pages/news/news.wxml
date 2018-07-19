@@ -1,0 +1,59 @@
+<!--pages/news/news.wxml-->
+<!-- 
+<view wx:if="{{success}}">
+  <view class="list_panel" wx:for="{{listData}}">
+    <view class="item_panel">
+      <view class="item_image">
+        <image src="{{item.image_url}}" mode="aspectFill"></image>
+      </view>
+      <view class="item_title">{{item.title}}</view>
+      <view class="item_content">{{item.content}}</view>
+      <view class="item_date">{{item.date}}</view>
+      <view class="item_view">{{item.page_views}}</view>
+      <view class="item_thumb">{{item.thumb_number}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="tip">
+    <text>没有新闻 :(</text>
+  </view>
+</view> -->
+
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+
+              <view wx:if="{{success}}">
+                <view class="list_panel" wx:for="{{listData}}">
+
+                   <!-- <navigator url="/pages/news/detail?id={{item.id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">  -->
+                   <view class="weui-media-box weui-media-box_appmsg" bindtap='seeDetail' id='{{item.id}}'> 
+                      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                          <image class="weui-media-box__thumb" src="{{item.image_url}}" />
+                      </view>
+                      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                          <view class="weui-media-box__title">{{item.title}}</view>
+                          <view class="weui-media-box__desc">{{item.content}}</view>
+                          <view style="font-size: 20rpx; margin-top: 10rpx; float: left; color: #ccc;">{{item.date}}</view>
+                          <view style="font-size: 20rpx; margin-top: 10rpx; float: right; color: #ccc; margin-right: 10rpx;">阅读量：{{item.page_views}}</view>
+                          <view style="font-size: 20rpx; margin-top: 10rpx; float: right; color: #ccc; margin-right: 30rpx;">点赞：{{item.thumb_number}}</view>
+                      </view>
+                   <!-- </navigator>  -->
+                   </view> 
+                </view>
+              </view>
+              <view wx:else>
+                <view class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无新闻数据</view>
+                </view>
+              </view>
+            </view>
+        </view>
+
+        
+
+    </view>
+</view>
+

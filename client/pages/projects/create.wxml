@@ -1,0 +1,87 @@
+<!--pages/projects/create.wxml-->
+
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page__bd">
+    
+        <view class="weui-cells__title">项目名称</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <input class="weui-input" bindinput='getProjectName' placeholder="请输入项目名称" />
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">项目简介</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入项目简介" style="height: 3.3em" bindinput='getProjectDescribe' maxlength='500' />
+                    <view class="weui-textarea-counter">{{project_describe.length}}/500</view>
+                </view>
+            </view>
+        </view>
+
+
+        <view class="weui-cells__title">预期团队成员数</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <!-- <input class="weui-input" bindinput='getTitle' placeholder="请输入预期团队成员数" /> -->
+                    <picker mode="selector" value="{{number_index}}" range="{{numbers}}" bindchange="getPredictNumber">
+                        <view class="weui-input">{{number_index}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">已有团队成员数</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_input">
+                <view class="weui-cell__bd">
+                    <!-- <input class="weui-input" bindinput='getTitle' placeholder="请输入预期团队成员数" /> -->
+                    <picker mode="selector" value="{{number_index}}" range="{{numbers}}" bindchange="getHaveNumber">
+                        <view class="weui-input">{{number_index}}</view>
+                    </picker>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">所需团队介绍</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入团队介绍" style="height: 3.3em" bindinput='getGroupDescribe' maxlength='500' />
+                    <view class="weui-textarea-counter">{{group_describe.length}}/500</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-cells__title">项目图片上传</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <view class="weui-uploader__files" id="uploaderFiles">
+                      <block wx:for="{{files}}" wx:key="*this">
+                          <view class="weui-uploader__file" bindtap="previewImage" id="{{item}}">
+                              <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+                          </view>
+                      </block>
+                    </view>
+                    <view class="weui-uploader">
+                        <view class="weui-uploader__bd">
+                            <view class="weui-uploader__input-box">
+                                <view class="weui-uploader__input" bindtap="chooseImage"></view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submit">创建</button>
+        </view>
+    </view>
+</view>
+

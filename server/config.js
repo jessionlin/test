@@ -20,8 +20,13 @@ const CONF = {
         host: 'localhost',
         port: 3306,
         user: 'root',
+<<<<<<< HEAD
         db: 'salon',
         pass: '336699',
+=======
+        db: 'cAuth',
+        pass: 'wx72748083568d73ff',
+>>>>>>> 81be316aea88c97c6e782669a27e62448dcee798
         char: 'utf8mb4'
     },
 

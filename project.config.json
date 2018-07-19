@@ -8,5 +8,6 @@
 	},
 	"appid": "wx72748083568d73ff",
 	"projectname": "test",
+	"compileType": "miniprogram",
 	"condition": {}
 }

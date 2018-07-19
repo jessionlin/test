@@ -1,14 +1,20 @@
 //index.js
-var qcloud = require('../../vendor/wafer2-client-sdk/index')
-var config = require('../../config')
-var util = require('../../utils/util.js')
+// var qcloud = require('../../vendor/wafer2-client-sdk/index')
+// var config = require('../../config')
+// var util = require('../../utils/util.js')
 
 Page({
     data: {
         userInfo: {},
         logged: false,
         takeSession: false,
-        requestResult: ''
+        requestResult: '',
+        movies: [
+          { url: '../images/views1.jpg' },
+          { url: '../images/views2.jpg' },
+          { url: '../images/views3.jpg' },
+          { url: '../images/views4.jpg' }
+        ]  
     },
 
     // 用户登录示例

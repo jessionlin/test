@@ -1,0 +1,7 @@
+/* pages/projects/details.wxss */
+page{
+  background-color: #f6f6f6;
+}
+.weui-form-preview{
+    margin-bottom: 25px;
+}

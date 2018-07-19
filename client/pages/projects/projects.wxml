@@ -1,0 +1,59 @@
+<!--pages/projects/projects.wxml-->
+<!-- <view wx:if="{{success}}">
+  <view class="search_panel">
+    <input class="search_text" type="text" placeholder='输入项目名' />
+    <button class="search_btn">搜索</button>
+  </view>
+  <view class="list_panel" wx:for="{{listData}}">
+    <view class="item_panel">
+      <view class="item_image">
+        <image src="{{item.image_url}}" mode="aspectFill"></image>
+      </view>
+      <view class="item_title">{{item.project_name}}</view>
+      <view class="item_user">{{item.user}}</view>
+      <view class="item_process">{{item.process_name}}</view>
+      <view class="item_date">{{item.date}}</view>
+      <view class="item_number">Need: {{item.group_number}}</view>
+      <view class="item_number_now">Now: {{item.group_number_now}}</view>
+    </view>
+  </view>
+</view>
+<view wx:else>
+  <view class="tip">
+    <text>尚未有项目，请您添加</text>
+  </view>
+</view> -->
+
+
+ <view class="page">
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+
+              <view wx:if="{{success}}">
+                <view class="list_panel" wx:for="{{listData}}">
+
+                   <view class="weui-media-box weui-media-box_appmsg" bindtap='seeDetail' id='{{item.id}}'> 
+                      <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                          <image class="weui-media-box__thumb" src="{{item.image_url}}" />
+                      </view>
+                      <view class="weui-media-box__bd weui-media-box__bd_in-appmsg" id="msgPanel">
+                          <view class="item_title">{{item.project_name}}</view>
+                          <view class="item_user">{{item.user}}</view>
+                          <view class="item_process">{{item.process_name}}</view>
+                          <view class="item_date">{{item.date}}</view>
+                          <view class="item_number">Need: {{item.group_number}}</view>
+                          <view class="item_number_now">Now: {{item.group_number_now}}</view>
+                      </view>
+                   </view> 
+                </view>
+              </view>
+              <view wx:else>
+                <view class="weui-loadmore weui-loadmore_line">
+                  <view class="weui-loadmore__tips weui-loadmore__tips_in-line">尚未有项目，请您添加</view>
+                </view>
+              </view>
+            </view>
+        </view>
+    </view>
+</view> 

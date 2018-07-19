@@ -1,0 +1,4 @@
+/* pages/news/create.wxss */
+page{
+  background: #F6F6F6;
+}

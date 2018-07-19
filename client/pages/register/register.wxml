@@ -1,0 +1,12 @@
+<view class='container'>
+    <view class='container register_title'>
+        <label>注册</label>
+        <!-- <progress percent="25" show-info backgroundColor="gray" activeColor="green"/> -->
+        <progress percent="{{percent}}" show-info='true' stroke-width="12" />
+    </view>
+    <view>
+  
+    </view>
+  
+</view>
+

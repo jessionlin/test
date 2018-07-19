@@ -13,43 +13,7 @@ module.exports = async (ctx, next) => {
 const Koa = require('koa');
 const app = new Koa();
 
-// 路由
-const Router = require('koa-router');
-const router = Router();
 
-// 解析post请求，将参数设置到 ctx.request.body 上
-const Parser = require('koa-bodyparser');
-app.use(Parser());
-
-// 静态文件的使用，所有的静态资源都会在 ./static目录下去寻找
-const staticfile = require('koa-static');
-const path = require('path');
-const staticPath = './static';
-app.use(staticfile(path.join(__dirname, staticPath)));
-
-// 数据库引用
-const mysql = require('mysql2');
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '336699',
-  database: 'salon'
-});
-
-// 加密算法
-const md5 = require('md5');
-let salt = 'salon'; // 加盐
-
-// session
-const session = require('koa-session');
-app.keys = ['this is the secret session key of salon project']; // session 信息加密密钥
-app.use(session({
-  key: 'koa:sess', /** cookie的名称，可以不管 */
-  maxAge: 7200000, /** (number) maxAge in ms (default is 1 days)，cookie的过期时间，这里表示2个小时 */
-  overwrite: true, /** (boolean) can overwrite or not (default true) */
-  httpOnly: true, /** (boolean) httpOnly or not (default true) */
-  signed: true, /** (boolean) signed or not (default true) */
-}, app));
 
 
 /**
