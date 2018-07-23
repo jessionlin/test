@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/login/login",
     "pages/index/index",
     "pages/projects/create",
     "pages/projects/details",
@@ -9,7 +10,6 @@
     "pages/news/create",
     "pages/register/register",
     "pages/addCgi/addCgi",
-    "pages/login/login",
     "pages/notation/notation",
     "pages/notation/create"
   ],
