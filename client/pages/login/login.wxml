@@ -6,10 +6,10 @@
   <form bindsubmit="formSubmit">
 
     <view class="section input_style">
-      <input name="username" placeholder="请输入用户名" />
+      <input name="username" placeholder="请输入用户名" bindblur='username'/>
     </view>
      <view class="section input_style">
-      <input name="password" type='password' placeholder="请输入密码" />
+      <input name="password" type='password' placeholder="请输入密码" bindblur='password'/>
     </view> 
     <!-- <view class='radio-content'>
       <radio-group class="radio-group" bindchange="radioChange">
@@ -24,7 +24,7 @@
         <checkbox value="forget_pass" class="checkbox_style" id='fget_pass'/>忘记密码
     </view> -->
      <view class="btn-area login_btn_style">
-      <button formType="submit" id='login' size='mini'>登录</button> 
+      <button bindtap="login" id='login' size='mini'>登录</button> 
       <navigator id='go_reg' url="../register/register" open-type="navigate" class="uploader-text">
           <text>注册></text>
       </navigator>

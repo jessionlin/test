@@ -39,7 +39,9 @@ create table if not exists `school`(
     `id` int(11) not null auto_increment primary key,
     `school_name` varchar(64) not null
 )engine=MyISAM default charset = utf8;
-
+/*!40000 ALTER TABLE `school` DISABLE KEYS */;
+INSERT INTO `school` VALUES (1,'哈尔滨工业大学'),(2,'哈尔滨工程大学'),(3,'哈尔滨理工大学'),(4,'黑龙江大学');
+/*!40000 ALTER TABLE `school` ENABLE KEYS */;
 --
 -- 3. 学院表
 --
@@ -48,7 +50,8 @@ create table if not exists `faculty`(
     `faculty_name` varchar(64) not null,
     `school_id` int(11) not null
 )engine=MyISAM default charset = utf8;
-
+INSERT INTO `faculty` VALUES (1,'计算机科学与技术学院',1),(2,'管理学院',1),(3,'电气及自动化学院',1);
+/*!40000 ALTER TABLE `faculty` ENABLE KEYS */;
 --
 -- 4. 专业表
 --
@@ -57,7 +60,8 @@ create table if not exists `profession`(
     `profession_name` varchar(64) not null,
     `faculty_id` int(11) not null
 )engine=MyISAM default charset = utf8;
-
+INSERT INTO `profession` VALUES (1,'软件工程',1),(2,'物联网工程',1),(3,'计算机科学与技术',1),(4,'信息安全',1),(5,'生物信息',1);
+/*!40000 ALTER TABLE `profession` ENABLE KEYS */;
 --
 -- 5. 特长类别表
 --
@@ -65,6 +69,8 @@ create table if not exists `characteristic_type`(
     `id` int(11) not null auto_increment primary key,
     `characteristic_type` varchar(64) not null
 )engine=MyISAM default charset = utf8;
+INSERT INTO `characteristic_type` VALUES (1,'计算机技术'),(2,'管理类'),(3,'销售类');
+/*!40000 ALTER TABLE `characteristic_type` ENABLE KEYS */;
 
 --
 -- 6. 特长表
@@ -75,6 +81,8 @@ create table if not exists `characteristic`(
     `type_id` int(11) not null
 )engine=MyISAM default charset = utf8;
 
+INSERT INTO `characteristic` VALUES (1,'大数据',1),(2,'NLP',1),(3,'计算机视觉',1),(4,'数据挖掘',1),(5,'模式识别',1),(6,'网站建站',1),(7,'知识图谱',1),(8,'软件项目管理',2),(9,'财务管理',2),(10,'成本管理',2),(11,'互联网营销',3),(12,'传统营销',3);
+/*!40000 ALTER TABLE `characteristic` ENABLE KEYS */;
 --
 -- 7. 用户特长表, 记录用户拥有哪些特长
 --

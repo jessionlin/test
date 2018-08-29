@@ -40,3 +40,6 @@ DB.raw(content).then(res => {
 }, err => {
     throw new Error(err)
 })
+
+
+module.exports = DB

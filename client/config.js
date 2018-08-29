@@ -3,7 +3,7 @@
  */
 
 // 此处主机域名修改成腾讯云解决方案分配的域名
-var host = 'https://ew7ghebm.qcloud.la';
+var host = 'http://www.hiter-lab.cn/';
 // var host = 'localhost:3000';
 var config = {
 

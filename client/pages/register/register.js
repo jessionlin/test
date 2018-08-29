@@ -4,16 +4,19 @@ Page({
     percent:25,
    
     //学校名称与选中条目index
-    collegeArray: ['哈尔滨工业大学', '哈尔滨工程大学', '哈尔滨理工大学', '黑龙江大学'],
+    collegeArray: [],
+    collegeArrayId:[],
     collegeIndex: 0,
    
     //专业名称与选中条目index
-    facultyArray: ['计算机类', '软件工程', '物流管理', '飞行器设计', '物理光学'],
+    facultyArray: [],
+    facultyArrayId: [],
     facultyIndex: 0,
 
     //特长选择备选默认与颜色列表
     labelBgColor: ["white", "#FFF5EE", "#FFE4B5", "#F0FFFF", "#00FA9A", "#D8BFD8", "#F0E68C", "#B0C4DE", "#40E0D0", "#FFC0CB", "#FFFFE0", "#F5DEB3"],
-    labelItems: ["项目管理", "大数据存储", "数据挖掘", "NLP", "CV", "单片机", "机器翻译", "神经网络", "SVM", "飞行器", "能源", "材料", "UI设计"],
+    labelItems: [],
+    labelItemsId: [],
     labelSelected: [],
     
     //注册界面picker位置
@@ -37,34 +40,97 @@ Page({
     chLengthErrorDisplay:"none"
   },
   onLoad:function(){
+    var that = this
     //初始化学校
-    // wx.request({
-    //   url: '/data/school',
-    //   method: "GET",
-    //   header: {
-    //     'content-type': 'json' 
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
-    let labels = this.data.labelItems;
-    let bgcLength = this.data.labelBgColor.length
-    let items = []
-    for (let i = 0; i < labels.length; i++) {
-      let item = { id: 0, name: "", bgcolor: "white" };
-      item.id = 100 + 10 * i;
-      item.name = labels[i];
-      //按顺序赋予颜色
-      // item.bgcolor = this.data.labelBgColor[i % bgcLength];
-      //随机数选择颜色
-      item.bgcolor = this.data.labelBgColor[Math.ceil(Math.random() * bgcLength)];
-      items.push(item);
-    }
-
-    this.setData({
-      labelItems: items,
+    wx.request({
+      url: 'http://salon.hiter-lab.cn:3000/data/school',
+      method: "GET",
+      header: {
+        'content-type': 'json'
+      },
+      success: function (res) {
+        // console.log(res.data.data)
+        // console.log(that)
+        // console.log(that.getItemFromObjArr(res.data.data, "school_name"))
+        that.setData({
+          collegeArray: that.getItemFromObjArr(res.data.data, "school_name"),
+          collegeArrayId: that.getItemFromObjArr(res.data.data, "id")
+        })
+        // console.log(that.data.collegeArray)
+      }
     })
+    //初始化专业
+    wx.request({
+      url: 'http://salon.hiter-lab.cn:3000/data/profession',
+      method: "GET",
+      header: {
+        'content-type': 'json'
+      },
+      success: function (res) {
+        // console.log(res.data.data)
+        // console.log(that)
+        // console.log(that.getItemFromObjArr(res.data.data, "school_name"))
+        that.setData({
+          facultyArray: that.getItemFromObjArr(res.data.data, "profession_name"),
+          facultyArrayId: that.getItemFromObjArr(res.data.data, "id"),
+        })
+        // console.log(that.data.facultyArray)
+      }
+    })
+    //初始化特长标签
+    wx.request({
+      url: 'http://salon.hiter-lab.cn:3000/data/characteristic',
+      method: "GET",
+      header: {
+        'content-type': 'json'
+      },
+      success: function (res) {
+        // console.log(res.data.data)
+        // console.log(that)
+        // console.log(that.getItemFromObjArr(res.data.data, "school_name"))
+        that.setData({
+          labelItems: that.getItemFromObjArr(res.data.data, "characteristic_name"),
+          labelItemsId: that.getItemFromObjArr(res.data.data, "id"),
+        })
+        console.log(that.data.labelItems)
+        let labels = that.data.labelItems;
+        let ids = that.data.labelItemsId
+        let bgcLength = that.data.labelBgColor.length
+        let items = []
+        for (let i = 0; i < labels.length; i++) {
+          let item = { id: 0, name: "", bgcolor: "white" };
+          item.id = ids[i];
+          item.name = labels[i];
+          //按顺序赋予颜色
+          // item.bgcolor = this.data.labelBgColor[i % bgcLength];
+          //随机数选择颜色
+          item.bgcolor = that.data.labelBgColor[Math.ceil(Math.random() * bgcLength)];
+          items.push(item);
+        }
+
+        that.setData({
+          labelItems: items,
+        })
+      }
+    })
+    // let labels = this.data.labelItems;
+    // console.log("labelItems: "+ this.data.labelItems)
+    // let bgcLength = this.data.labelBgColor.length
+    // let items = []
+    // for (let i = 0; i < labels.length; i++) {
+    //   let item = { id: 0, name: "", bgcolor: "white" };
+    //   item.id = 100 + 10 * i;
+    //   item.name = labels[i];
+    //   //按顺序赋予颜色
+    //   // item.bgcolor = this.data.labelBgColor[i % bgcLength];
+    //   //随机数选择颜色
+    //   item.bgcolor = this.data.labelBgColor[Math.ceil(Math.random() * bgcLength)];
+    //   items.push(item);
+    // }
+
+    // this.setData({
+    //   labelItems: items,
+    // })
   },
   //禁止手动滑动swiper
   disallowed:function(){
@@ -263,13 +329,12 @@ Page({
         chLengthErrorDisplay: "block"
       })
     }
-    // this.getIdArrByObjArr(this.data.labelSelected, "characteristic")
+    this.getIdArrByObjArr(this.data.labelSelected, "characteristic")
   },
   //取消选择标签
   delSelected: function (e) {
     let id = e.target.id.split("_")[0];
     let name = e.target.id.split("_")[1];
-    // console.log(id);
     let labelItems = this.data.labelItems;
     if (!this.checkArrHasId(parseInt(id), labelItems)) {
       labelItems.push({ id: parseInt(id), name: name, bgcolor: this.data.labelBgColor[Math.ceil(Math.random() * this.data.labelBgColor.length)] })
@@ -280,8 +345,6 @@ Page({
       chLengthErrorDisplay: "none"
     })
     this.delArrById(id, this.data.labelSelected, "labelSelected")
-    // console.log(this.data.labelItems)
-    // console.log(this.data.labelSelected)
   },
   //根据ID选择获取名称
   getItemNameById: function (id, arr) {
@@ -294,13 +357,9 @@ Page({
   },
   //根据ID删除某一个标签
   delArrById: function (id, arr, arrName) {
-    // console.log(id)
-    // console.log(arr)
     for (let i = 0; i < arr.length; ++i) {
       if (arr[i].id == id) {
         arr.splice(i, 1);
-        // console.log("arr")
-        // console.log(arr);
         if (arrName == "labelItems") {
           this.setData({
             labelItems: arr
@@ -337,36 +396,65 @@ Page({
       })
     }
 
-    // console.log(this.data.characteristic)
+    console.log(this.data.characteristic)
   },
   //注册
   register:function(){
-    console.log(this.data.userName)
-    console.log(this.data.password)
-    console.log(this.data.realName)
-    console.log(this.data.collegeIndex)
-    console.log(this.data.facultyIndex)
-    console.log(this.data.phone)
-    console.log(this.data.email)
-    console.log(this.data.characteristic)
-    // wx.request({
-    //   url: '/register', 
-    //   data: {
-    //     user_name: this.data.userName,
-    //     password: this.data.password,
-    //     real_name: this.data.realName,
-    //     school_id: this.data.collegeIndex,
-    //     profession_id: this.data.facultyIndex,
-    //     phone: this.data.phone,
-    //     email: this.data.email,
-    //     characteristic: this.data.characteristic,
-    //   },
-    //   header: {
-    //     'content-type': 'application/json' 
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
-    // })
+    // console.log(this.data.userName)
+    // console.log(this.data.password)
+    // console.log(this.data.realName)
+    // console.log(this.data.collegeIndex + 1)
+    // console.log(this.data.facultyIndex + 1)
+    // console.log(this.data.phone)
+    // console.log(this.data.email)
+    // console.log(this.data.characteristic)
+    var that = this
+    wx.request({
+      url: 'http://salon.hiter-lab.cn:3000/register', 
+      data: {
+        user_name: this.data.userName,
+        password: this.data.password,
+        real_name: this.data.realName,
+        school_id: this.data.collegeIndex +1,
+        faculty_id: this.data.facultyIndex +1,
+        phone: this.data.phone,
+        email: this.data.email,
+        characteristic: this.data.characteristic,
+      },
+      method: "POST",
+      header: {
+        'content-type': 'application/json' 
+      },
+      success: function (res) {
+        // console.log(res.data)
+        wx.request({
+          url: 'http://salon.hiter-lab.cn:3000/login',
+          method: "POST",
+          data:{
+            username: that.data.userName,
+            password: that.data.password,
+          },
+          header: {
+            'content-type': 'json'
+          },
+          success: function (res) {
+            console.log(that)
+            that.formSubmit()
+          }
+        })
+      }
+    })
+  },
+  getItemFromObjArr: function (arr, key) {
+    var retArr = []
+    for (let i = 0; i < arr.length; i++) {
+      retArr.push(arr[i][key])
+    }
+    return retArr
+  },
+  formSubmit: function (e) {
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
   }
 })

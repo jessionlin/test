@@ -2,13 +2,15 @@
   "pages":[
     "pages/login/login",
     "pages/index/index",
+    "pages/login/login",
+    "pages/register/register",
+    
     "pages/projects/create",
     "pages/projects/details",
     "pages/projects/projects",
     "pages/news/news",
     "pages/news/details",
     "pages/news/create",
-    "pages/register/register",
     "pages/addCgi/addCgi",
     "pages/notation/notation",
     "pages/notation/create"
