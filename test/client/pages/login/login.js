@@ -2,13 +2,12 @@
 
 Page({
   data: {
-    username:'',
-    password:''
+    username: '',
+    password: ''
   },
   onLoad: function () {
-    
+
   },
-<<<<<<< HEAD
   password: function (e) {
     this.setData({
       password: e.detail.value
@@ -36,17 +35,12 @@ Page({
       success: function (res) {
         that.redirect()
       }
-=======
-  formSubmit: function (e) {
-    wx.navigateTo({
-      url: '/pages/index/index',
->>>>>>> 9e5b2c646745a2e8b1897df671ebedbe56d8e5c3
     })
   },
   formReset: function () {
     console.log('form发生了reset事件')
   },
-  redirect:function(e){
+  redirect: function (e) {
     wx.navigateTo({
       url: '/pages/index/index',
     })
