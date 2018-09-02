@@ -141,23 +141,39 @@ Page({
   注册信息写入系统变量中，
   */
   username:function(e){
-    this.setData({
-      userName: e.detail.value,
-    })
-    // console.log(this.data.userName)
-    // wx.request({
-    //   url: '/useful_name', 
-    //   data: {
-    //     user_name: this.data.userName,
-    //   },
-    //   method:"POST",
-    //   header: {
-    //     'content-type': 'json'
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //   }
+    // this.setData({
+    //   userName: e.detail.value,
     // })
+    var userName = e.detail.value
+    var that = this
+    console.log(userName)
+    // console.log(this.data.userName)
+    wx.request({
+      url: 'http://salon.hiter-lab.cn:3000/useful_name', 
+      method: "POST",
+      data: {
+        user_name: userName,
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        if(!res.data.success){
+          that.setData({
+            usernameErrorDisplay:"block",
+            falseMsg:res.data.err
+          })
+        }
+        else{
+          that.setData({
+            userName: e.detail.value,
+            usernameErrorDisplay: "none",
+            falseMsg: ""
+          })
+        }
+      }
+    })
   },
   password: function (e) {
     this.setData({
@@ -416,7 +432,7 @@ Page({
         password: this.data.password,
         real_name: this.data.realName,
         school_id: this.data.collegeIndex +1,
-        faculty_id: this.data.facultyIndex +1,
+        profession_id: this.data.facultyIndex +1,
         phone: this.data.phone,
         email: this.data.email,
         characteristic: this.data.characteristic,
